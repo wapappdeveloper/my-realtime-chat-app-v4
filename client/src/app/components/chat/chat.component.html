@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="holder">
+        <div class="bg-top"></div>
+        <div class="bg-bottom"></div>
+        <div class="header">
+            <div class="header-holder">
+                <div class="header-left disable-select" (click)="navigateTo('profile')">
+                    <div class="header-left-text disable-select">&#x226A;</div>
+                </div>
+                <div class="header-center">
+                    <div class="header-message">CHAT</div>
+                </div>
+                <div class="header-right disable-select" (click)="showOptions()">
+                    <div class="header-dot"></div>
+                    <div class="header-dot"></div>
+                </div>
+                <div *ngIf="options" class="options-list shadow">
+                    <div class="signout options-item" (click)="signOut()">Signout</div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="chat-container" #chatHolder>
+                <div *ngFor="let chat of chatArray" class="message-container">
+                    <span class="shadow chat-message" [class.in-message]="chat.user !== data.username" [class.out-message]="chat.user === data.username">{{chat.msg}}
+                        <span [class.in-messenger]="chat.user !== data.username" [class.out-messenger]="chat.user === data.username">{{chat.user}}</span>
+                        <div [class.in-arrow]="chat.user !== data.username" [class.out-arrow]="chat.user === data.username"></div>
+                    </span>
+                    <span class="clear"></span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-holder">
+                <div class="left disable-select">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="center">
+                    <input type="text" class="message" placeholder="Text message..." [(ngModel)]="message" name="message">
+                </div>
+                <div class="right disable-select" (click)="submitMessage(message)">
+                    <div class="send-text disable-select">Send</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

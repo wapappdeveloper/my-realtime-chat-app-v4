@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+html, body, .container, .holder{
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+.bg-top{
+    position: absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background: #b9a2ea;
+}
+.bg-bottom{
+    position: absolute;
+    top:0;
+    width:0;
+    height:0;
+    border-top: 0 solid transparent;
+    border-bottom: 300px solid transparent;
+    border-left: 300px solid #C8B3F7;
+}
+
+/*
+ *  STYLE 1
+ */
+
+ /*::-webkit-scrollbar-track
+ {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+     border-radius: 10px;
+     background-color: #F5F5F5;
+ }
+ 
+::-webkit-scrollbar
+ {
+     width: 8px;
+     background-color: #F5F5F5;
+ }
+ 
+::-webkit-scrollbar-thumb
+ {
+     border-radius: 10px;
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+     background-color: rgb(148, 147, 147);
+ }*/

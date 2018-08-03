@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="holder">
+        <div class="bg-top"></div>
+        <div class="bg-bottom"></div>
+        <app-signin></app-signin>
+        <!--<app-chat></app-chat>-->
+        <!--<app-login (emitter)="emitter($event)" *ngIf="!data.validUser"></app-login>-->
+        <!--<app-profile></app-profile>-->
+        <!--<router-outlet></router-outlet>-->
+    </div>
+</div>
+
+<video #messageToneVideo id="messageToneVideo" width="1" height="1" style="top: -10000px; left: -10000px; position: absolute;"
+    preload>
+    <source src="assets/video/facebookchat.mp4" type="video/mp4">
+    <source src="assets/video/facebookchat.ogg" type="video/ogg">
+</video>
+
+<video #chatIntroToneVideo id="chatIntroToneVideo" width="1" height="1" style="top: -10000px; left: -10000px; position: absolute;"
+    preload>
+    <source src="assets/video/chatintro.mp4" type="video/mp4">
+    <source src="assets/video/chatintro.ogg" type="video/ogg">
+</video>

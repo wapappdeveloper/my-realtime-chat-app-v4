@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="holder">
+      <div class="bg-top"></div>
+      <div class="bg-bottom"></div>
+      <div class="wrapper">
+
+        <div class="form-holder shadow" *ngIf="page_1">
+          <div class="photo-holder">
+            <div class="photo" [class.profile-photo]="data.userDetail.imagePath!==''" [style.background-image]="'url('+data.userDetail.imagePath+')'"></div>
+
+            <span class="photo-text">
+              <input type="file" name="file" id="file" class="inputfile" style="display:none" (change)="onChange($event)">
+              <label for="file" class="photo-text">PHOTO</label>
+            </span>
+
+          </div>
+          <span class="label-text">PROFILE NAME</span>
+          <input type="text" class="input-text" required [(ngModel)]="data.userDetail.name">
+          <span class="label-text">BIRTHDAY</span>
+          <input type="text" class="input-text" required [(ngModel)]="data.userDetail.birthday">
+          <span class="label-text">GENDER</span>
+          <div class="radio-holder">
+            <input type="radio" required name="gender" value="male" [(ngModel)]="data.userDetail.gender" class="input-radio"><span class="male">MALE</span>
+            <input type="radio" required name="gender" value="female" [(ngModel)]="data.userDetail.gender" class="input-radio female"><span class="female">FEMALE</span>
+          </div>
+          <div class="button disable-select" (click)="saveStep1()">
+            <span class="button-text disable-select" >Step 1</span>
+          </div>
+        </div>
+
+        <!--<div class="form-holder shadow" *ngIf="page_2">
+          <span class="label-text">EMAIL</span>
+          <input type="text" class="input-text" required [(ngModel)]="data.userDetail.email">
+          <span class="label-text">PHONE</span>
+          <input type="text" class="input-text" required [(ngModel)]="data.userDetail.phone">
+          <span class="label-text">PASSWORD</span>
+          <input type="password" class="input-text" required [(ngModel)]="password">
+          <span class="label-text">CONFIRM PASSWORD</span>
+          <input type="password" class="input-text" required [(ngModel)]="confirmPassword">
+          <div class="button disable-select" (click)="saveStep2()">
+            <span class="button-text disable-select">Step 2</span>
+          </div>
+        </div>-->
+
+        <div class="form-holder shadow" *ngIf="page_3">
+          <div class="photo-holder">
+            <div class="photo photo-final" [class.profile-photo]="data.userDetail.imagePath!==''" [style.background-image]="'url('+data.userDetail.imagePath+')'"></div>
+          </div>
+          <span class="label-text align-center">PROFILE NAME</span>
+          <span class="profile-name align-center text-shadow">{{data.userDetail.name}}</span>
+          <div class="button disable-select" (click)="saveUserDetail()">
+            <span class="button-text disable-select" >{{(data.quickChat)?'BACK TO CHAT':'SAVE'}}</span>
+          </div>
+        </div>
+
+        <div class="welcome-holder" *ngIf="page_4">
+          <div class="yellow-box shadow">
+            <div class="black-box shadow">
+              <div class="line-1"></div>
+              <div class="line-2"></div>
+              <div class="arrow"></div>
+            </div>
+            <span class="welcome-text text-shadow">WELCOME TO CHAT APP</span>
+            <span class="start shadow disable-select" (click)="navigateTo('chat')">START CHAT</span>
+            <span class="welcome-footer">A REAL TIME GROUP CHAT APP</span>
+          </div>
+        </div>
+
+        <!--<div class="footer">
+          <div class="left">PREV</div>
+          <div class="right">NEXT</div>
+        </div>-->
+        <div class="footer" *ngIf="!data.quickChat">
+          <ul>
+            <li [class.white]="page_1" (click)="movePage(1)"></li><!--<li [class.white]="page_2" (click)="movePage(2)"></li>--><li [class.white]="page_3" (click)="movePage(3)"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
